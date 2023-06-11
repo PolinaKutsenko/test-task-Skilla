@@ -1,0 +1,7 @@
+#callsPageContainer {
+    position: relative;
+    width: 1920px;
+    height: 100vh;
+
+    background: var(--call-page-background);
+}

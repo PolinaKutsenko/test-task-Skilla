@@ -1,0 +1,20 @@
+.arrowButton {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    width:  24px;
+    height: 24px;
+    border: none;
+
+    cursor: url("../../../icons/Cursor.png"), pointer;
+
+    background: var(--primary-white);
+}
+
+.arrowButton:hover svg path,
+.arrowButton:active svg path{
+    fill: var(--sidebar-active-line);
+}

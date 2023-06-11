@@ -1,0 +1,102 @@
+#sourcesFilter {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 4px;
+    position: relative;
+    
+    height: 21px;
+    
+    flex: none;
+    order: 3;
+    flex-grow: 0;
+}
+
+#sourcesFilter .selectButton {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    width: 100%;
+    padding: 0;
+
+    background: var(--call-page-background);
+    border: 1px solid var(--call-page-background);
+    color: var(--context-search-text);
+
+    cursor: url("../../../../icons/Cursor.png"), pointer;
+}
+
+#sourcesFilter span{
+    width: 18px;
+    height: 21px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+}
+
+.selectList {
+  display: none;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+
+  box-sizing: border-box;
+  width: 204px;
+
+  position: absolute;
+  right: 0%;
+  top: calc(21px + 8px);
+  
+  background: #FFFFFF;
+  border: 1px solid #EAF0FA;
+  
+  box-shadow: 0px 0px 26px rgba(233, 237, 243, 0.8);
+  border-radius: 4px;
+  z-index: 1;
+
+  cursor: url("../../../../icons/Cursor.png"), pointer;
+}
+
+.selectList-visible {
+    display: block;
+}
+
+#sourcesFilter .selectList-visible + .selectButton svg {
+    rotate: 180deg;
+}
+
+#sourcesFilter .selectList-visible + .selectButton svg path {
+    fill: var(--sidebar-active-line);
+}
+
+.selectListItem {
+    margin: 0;
+    padding: 6px 0 6px 21px;
+}
+
+#filtersFlexContainer #sourcesFilter .selectList .selectListItem-selected {
+    color: var(--sidebar-active-line);
+}
+
+#sourcesFilter .selectList .selectListItem:hover {
+    color: var(--header-bar-text);
+    background: var(--primary-blue-13pr);
+    border-radius: 0px;
+}
+
+.inputHidden {
+    position: absolute;
+    top: 30px;
+    display: none;
+}
+
+#sourcesFilter .selectButton:hover svg path {
+    fill: var(--sidebar-active-line);
+}
+
+#sourcesFilter .selectButton:hover {
+    color: var(--sidebar-active-line);
+}

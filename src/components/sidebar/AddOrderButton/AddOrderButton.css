@@ -1,0 +1,39 @@
+#addOrderButton {
+  position: absolute;
+  width: 200px;
+  height: 52px;
+  left: 20px;
+  top: 664px;
+
+  border: none;
+  padding: 0;
+
+  background: var(--sidebar-buttons);
+  border-radius: 4px;
+}
+
+#addOrderButton p {
+  position: absolute;
+  width: 115px;
+  height: 24px;
+  left: 24px;
+  top: 13px;
+
+  margin: 0;
+}
+
+#addOrderIcon {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  left: 156px;
+  top: 14px;
+}
+
+#addOrderButton:hover {
+  background: var(--sidebar-buttons-hover);
+}
+
+#addOrderButton:active {
+  background: var(--sidebar-buttons-active);
+}

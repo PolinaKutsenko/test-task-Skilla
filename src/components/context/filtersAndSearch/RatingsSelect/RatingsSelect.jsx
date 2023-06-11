@@ -1,0 +1,78 @@
+import React, { useState } from 'react';
+import { useFormik } from 'formik';
+import { useTranslation } from 'react-i18next';
+import cn from 'classnames';
+
+import ArrowButtonIcon from '../../../../icons/ArrowButtonIcon';
+import './RatingsSelect.css';
+
+
+const RatingsSelect = () => {
+  const { t } = useTranslation();
+  const [isListOpened, setIsListOpened] = useState(false);
+  const [buttonText, setButtonText] = useState(t('context.ratings.allRatings'));
+
+  const formik = useFormik({
+    initialValues: {
+      ratings: 'allRatings',
+    },
+  });
+
+  const listClassNames = cn('selectList', 'selectText', {
+    'selectList-visible': isListOpened,
+  });
+
+  const listItemClassNames = (dataValue) => (cn('selectListItem', {
+    'selectListItem-selected': dataValue === formik.values.ratings,
+  }));
+
+  const handleItemClick = (e) => {
+    e.stopPropagation();
+    setButtonText(e.target.textContent);
+    formik.values.ratings = e.target.dataset.value;
+    setIsListOpened(!isListOpened);
+  }
+
+  const handleButtonClick = () => {
+    setIsListOpened(!isListOpened);
+  }
+
+  return (
+    <div id="ratingsFilter">
+      <ul className={listClassNames}>
+        <li className={listItemClassNames('allRatings')} data-value="allRatings" onClick={handleItemClick}>
+          {t('context.ratings.allRatings')}
+        </li>
+        <li className={listItemClassNames('recognize')} data-value="recognize" onClick={handleItemClick}>
+          {t('context.ratings.recognize')}
+        </li>
+        <li className={listItemClassNames('scriptNotUsed')} data-value="scriptNotUsed" onClick={handleItemClick}>
+          {t('context.ratings.scriptNotUsed')}
+        </li>
+        <li className={listItemClassNames('bad')} data-value="bad" onClick={handleItemClick}>
+          {t('context.ratings.bad')}
+        </li>
+        <li className={listItemClassNames('good')} data-value="good" onClick={handleItemClick}>
+          {t('context.ratings.good')}
+        </li>
+        <li className={listItemClassNames('excellent')} data-value="excellent" onClick={handleItemClick}>
+          {t('context.ratings.excellent')}
+        </li>
+      </ul>
+      <button className="selectButton headerBarText" onClick={handleButtonClick}>
+        {buttonText}
+        <span><ArrowButtonIcon /></span>
+      </button>
+      <input
+        type="text"
+        id="ratings"
+        name="ratings"
+        value={formik.values.ratings}
+        onChange={formik.handleChange}
+        className="inputHidden"
+      />
+    </div>
+  );
+};
+
+export default RatingsSelect;

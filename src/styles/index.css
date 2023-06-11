@@ -1,0 +1,137 @@
+@font-face {
+  font-weight: 500;
+  font-family: "SF Pro Display";
+  src: url("./fonts/SF-Pro-Display-Medium.otf");
+}
+
+@font-face {
+  font-weight: 400;
+  font-family: "SF Pro Display";
+  src: url("./fonts/SF-Pro-Display-Regular.otf");
+}
+
+:root {
+  --call-page-background: #F1F4F9;
+  --sidebar-background: #091336;
+
+  --sidebar-buttons: #005FF8;
+  --sidebar-buttons-hover: #0024CB;
+  --sidebar-buttons-active: #274BC8;
+  --sidebar-buttons-icons: rgba(216, 228, 251, 0.56);
+
+  --sidebar-active-line: #002CFB;
+  --sidebar-active-dote:  #FFD500;
+  --sidebar-active-background: rgba(216, 228, 251, 0.32);
+  --primary-blue-13pr: rgba(0, 44, 251, 0.13);
+
+  --header-box-shadow: #E9EDF3;
+  --header-text: #899CB1;
+  --header-bar-background: #DEE6F5;
+  --header-green-calls: #28A879;
+  --header-yellow-calls: #FFD500;
+  --header-red-orders: #EA1A4F;
+  --header-bar-text: #122945;
+
+  --context-search-text: #5E7793;
+
+  --primary-white: #FFFFFF;
+
+
+
+
+
+}
+
+body, p, span {
+  margin: 0;
+  padding: 0;
+}
+
+
+.sidebarButtonsText {
+  font-family: 'SF Pro Display', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 148%;
+
+  color: var(--primary-white);
+}
+
+.sidebarItemText {
+  font-family: 'SF Pro Display', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+
+  color: var(--primary-white);
+}
+
+.headerDateText {
+  font-family: 'SF Pro Display', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 148%;
+}
+
+.headerBarText {
+  font-family: 'SF Pro Display', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 148%;
+  color: var(--header-bar-text);
+}
+
+.headerNameText {
+  font-family: 'SF Pro Display';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 140%;
+
+  color: var(--header-text);
+}
+
+.contextCalendarText {
+  font-family: 'SF Pro Display', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: right;
+  color: var(--sidebar-buttons);
+}
+
+.filtersAndSearchText {
+  font-family: 'SF Pro Display';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 140%;
+
+  color: var(--context-search-text);
+}
+
+.selectText {
+  font-family: 'SF Pro Display';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 28px;
+
+  color: var(--header-text);
+}
+
+
+
+
+
+
+
+
+
+
+

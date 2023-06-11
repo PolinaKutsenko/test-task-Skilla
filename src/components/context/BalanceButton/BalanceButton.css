@@ -1,0 +1,58 @@
+#balanceButton {
+    position: absolute;
+    width: 145px;
+    height: 40px;
+    left: 1132px;
+    top: 20px;
+
+    background: var(--primary-white);
+    border-radius: 48px;
+
+    cursor: url("../../../icons/Cursor.png"), pointer;
+}
+
+#balanceButton .headerBarText {
+    position: absolute;
+    width: 87px;
+    height: 21px;
+    left: 12px;
+    top: calc(50% - 21px/2 + 0.5px);
+    color: var(--header-text);
+    gap: 2px;
+
+    display: flex;
+    align-items: flex-end;
+    text-align: right;
+}
+
+#balanceButton .headerBarText p {
+    margin: 0;
+    color: var(--header-bar-text);
+}
+
+#balanceButton:hover .headerBarText p {
+    color: var(--sidebar-buttons-hover);
+}
+
+#balanceAddIcon {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    left: 109px;
+    top: 8px;
+}
+
+#balanceAddIcon svg path{
+    fill: var(--sidebar-buttons);
+    fill-opacity: 1;
+}
+
+#balanceButton:hover #balanceAddIcon svg path{
+    fill: var(--sidebar-buttons-hover);
+    fill-opacity: 1;
+}
+
+#balanceButton:active #balanceAddIcon svg path{
+    fill: var(--sidebar-buttons-active);
+    fill-opacity: 1;
+}

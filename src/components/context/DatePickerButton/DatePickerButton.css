@@ -1,0 +1,154 @@
+#dataPickerContainer {
+    position: absolute;
+    width: 115px;
+    height: 24px;
+    left: 1325px;
+    top: 28px;
+
+    cursor: url("../../../icons/Cursor.png"), pointer;
+}
+
+#dataPickerFlexContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 12px;
+
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    top: 0%;
+    bottom: 0%;
+}
+
+#dateFilter {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 8px;
+    position: relative;
+
+    height: 18px;
+
+
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+#dateFilter .selectButton {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    width: 100%;
+    padding: 0;
+    gap: 8px;
+
+    background: var(--call-page-background);
+    border: 1px solid var(--call-page-background);
+    color: var(--sidebar-active-line);
+
+    cursor: url("../../../icons/Cursor.png"), pointer;
+}
+
+#dateFilter span{
+    width: 16px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+}
+
+.selectList {
+    display: none;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  
+    box-sizing: border-box;
+    width: 204px;
+  
+    position: absolute;
+    right: 0%;
+    top: calc(21px + 8px);
+    
+    background: #FFFFFF;
+    border: 1px solid #EAF0FA;
+    
+    box-shadow: 0px 0px 26px rgba(233, 237, 243, 0.8);
+    border-radius: 4px;
+    z-index: 1;
+  
+    cursor: url("../../../../icons/Cursor.png"), pointer;
+}
+  
+.selectList-visible {
+    display: block;
+}
+
+.selectListItem {
+    margin: 0;
+    padding: 6px 0 6px 21px;
+}
+
+#dateFilter .selectList .selectListItem-selected {
+    color: var(--sidebar-active-line);
+}
+
+#dateFilter .selectList .selectListItem:hover {
+    color: var(--header-bar-text);
+    background: var(--primary-blue-13pr);
+    border-radius: 0px;
+}
+
+.inputHidden {
+    position: absolute;
+    top: 30px;
+    display: none;
+}
+
+#dateFilter .selectButton:hover svg path {
+    fill: var(--sidebar-active-line);
+}
+
+#dateFilter .selectButton:hover {
+    color: var(--sidebar-active-line);
+}
+
+#dataPickerFlexContainer #leftButton  {
+    rotate: 90deg;
+    position: absolute;
+    left: -6.52%;
+    top: 0%;
+    bottom: 0%;
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+#dataPickerFlexContainer #leftButton button  {
+    background: var(--call-page-background);
+}
+
+#dataPickerFlexContainer #rightButton {
+    rotate: 270deg;
+    position: absolute;
+    right: -6.52%;
+    top: 0%;
+    bottom: 0%;
+
+    flex: none;
+    order: 2;
+    flex-grow: 0;
+}
+
+#dataPickerFlexContainer #rightButton button  {
+    background: var(--call-page-background);
+}

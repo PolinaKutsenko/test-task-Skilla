@@ -1,0 +1,39 @@
+#paymentButton {
+    position: absolute;
+    width: 200px;
+    height: 52px;
+    left: 20px;
+    top: 748px;
+  
+    border: none;
+    padding: 0;
+  
+    background: var(--sidebar-buttons);
+    border-radius: 4px;
+  }
+  
+  #paymentButton p {
+    position: absolute;
+    width: 54px;
+    height: 24px;
+    left: 65px;
+    top: 13px;
+  
+    margin: 0;
+  }
+  
+  #paymentIcon {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    left: 156px;
+    top: 14px;
+  }
+  
+  #paymentButton:hover {
+    background: var(--sidebar-buttons-hover);
+  }
+  
+  #paymentButton:active {
+    background: var(--sidebar-buttons-active);
+  }
