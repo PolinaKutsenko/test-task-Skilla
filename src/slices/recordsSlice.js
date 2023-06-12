@@ -1,11 +1,25 @@
 import { createAsyncThunk, createSlice, createEntityAdapter } from '@reduxjs/toolkit';
 import axios from 'axios';
-import routes from '../const/routes.js';
 
 
-export const fetchRecord = createAsyncThunk('records/fetchRecord', async (header) => {
-  const result = await axios.post(routes.getRecordPath(), { headers: header });
-  return result.data;
+export const fetchRecord = createAsyncThunk('records/fetchRecord', async ({ route, authHeader }) => {
+  //console.log(route)
+  //console.log('33', JSON.stringify(authHeader))
+  let config = {
+    method: 'post',
+    maxBodyLength: Infinity,
+    url: route,
+    headers: {
+      ...authHeader,
+      'Content-type': 'audio/mpeg, audio/x-mpeg, audio/x-mpeg-3, audio/mpeg3',
+      'Content-Transfer-Encoding': 'binary',
+      'Content-Disposition': 'filename="record.mp3"',
+    },
+  };
+
+  const result = await axios.request(config);
+  //console.log(result.data)
+  //return result.data.results;
 });
 
 const recordsAdapter = createEntityAdapter();

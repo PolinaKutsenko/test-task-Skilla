@@ -2,15 +2,19 @@ import React, { useState } from 'react';
 import { useFormik } from 'formik';
 import { useTranslation } from 'react-i18next';
 import cn from 'classnames';
+import { useSelector, useDispatch } from 'react-redux';
 
+import { changeSelectorsDefaultState, changeMistakesSelect } from '../../../../slices/selectsUISlice';
 import ArrowButtonIcon from '../../../../icons/ArrowButtonIcon';
 import './MistakesSelect.css';
 
 
 const MistakesSelect = () => {
   const { t } = useTranslation();
+  const mistakesSelect = useSelector(({ selectsUI }) => selectsUI.mistakesSelect);
+  const dispatch = useDispatch();
+
   const [isListOpened, setIsListOpened] = useState(false);
-  const [buttonText, setButtonText] = useState(t('context.mistakes.allMistakes'));
 
   const formik = useFormik({
     initialValues: {
@@ -28,7 +32,10 @@ const MistakesSelect = () => {
 
   const handleItemClick = (e) => {
     e.stopPropagation();
-    setButtonText(e.target.textContent);
+
+    dispatch(changeMistakesSelect(e.target.textContent));
+    dispatch(changeSelectorsDefaultState());
+
     formik.values.mistakes = e.target.dataset.value;
     setIsListOpened(!isListOpened);
   }
@@ -66,7 +73,7 @@ const MistakesSelect = () => {
         </li>
       </ul>
       <button className="selectButton headerBarText" onClick={handleButtonClick}>
-        {buttonText}
+        {mistakesSelect}
         <span><ArrowButtonIcon /></span>
       </button>
       <input

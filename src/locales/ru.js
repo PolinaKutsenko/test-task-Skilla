@@ -74,6 +74,15 @@ export default {
         grace: 'Благодарность',
         stopWords: 'Стоп слова',
       },
+      callsHeader: {
+        type: 'Тип',
+        time: 'Время',
+        employees: 'Сотрудник',
+        call: 'Звонок',
+        source: 'Источник',
+        rating: 'Оценка',
+        duration: 'Длительность',
+      }
     },
     notFoundPage: {
       pageNotFound: 'Страница не найдена',

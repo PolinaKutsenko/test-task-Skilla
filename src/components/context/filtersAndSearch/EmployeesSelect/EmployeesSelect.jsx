@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import { useFormik } from 'formik';
 import { useTranslation } from 'react-i18next';
 import cn from 'classnames';
+import { useSelector, useDispatch } from 'react-redux';
 
+import { changeSelectorsDefaultState, changeEmployeesSelect } from '../../../../slices/selectsUISlice';
 import avatar from '../../../../icons/avatar.png';
 import ArrowButtonIcon from '../../../../icons/ArrowButtonIcon';
 import './EmployeesSelect.css';
@@ -10,8 +12,10 @@ import './EmployeesSelect.css';
 
 const EmployeesSelect = () => {
   const { t } = useTranslation();
+  const employeesSelect = useSelector(({ selectsUI }) => selectsUI.employeesSelect);
+  const dispatch = useDispatch();
+
   const [isListOpened, setIsListOpened] = useState(false);
-  const [buttonText, setButtonText] = useState(t('context.employees.allEmployees'));
 
   const formik = useFormik({
     initialValues: {
@@ -29,7 +33,10 @@ const EmployeesSelect = () => {
 
   const handleItemClick = (e) => {
     e.stopPropagation();
-    setButtonText(e.target.textContent);
+
+    dispatch(changeEmployeesSelect(e.target.textContent));
+    dispatch(changeSelectorsDefaultState());
+
     formik.values.employees = e.target.dataset.value;
     setIsListOpened(!isListOpened);
   }
@@ -54,7 +61,7 @@ const EmployeesSelect = () => {
         </li>
       </ul>
       <button className="selectButton headerBarText" onClick={handleButtonClick}>
-        {buttonText}
+        {employeesSelect}
         <span><ArrowButtonIcon /></span>
       </button>
       <input

@@ -2,15 +2,19 @@ import React, { useState } from 'react';
 import { useFormik } from 'formik';
 import { useTranslation } from 'react-i18next';
 import cn from 'classnames';
+import { useSelector, useDispatch } from 'react-redux';
 
+import { changeSelectorsDefaultState, changeSourcesSelect } from '../../../../slices/selectsUISlice';
 import ArrowButtonIcon from '../../../../icons/ArrowButtonIcon';
 import './SourcesSelect.css';
 
 
 const SourcesSelect = () => {
   const { t } = useTranslation();
+  const sourcesSelect = useSelector(({ selectsUI }) => selectsUI.sourcesSelect);
+  const dispatch = useDispatch();
+
   const [isListOpened, setIsListOpened] = useState(false);
-  const [buttonText, setButtonText] = useState(t('context.sources.allSources'));
 
   const formik = useFormik({
     initialValues: {
@@ -28,7 +32,10 @@ const SourcesSelect = () => {
 
   const handleItemClick = (e) => {
     e.stopPropagation();
-    setButtonText(e.target.textContent);
+
+    dispatch(changeSourcesSelect(e.target.textContent));
+    dispatch(changeSelectorsDefaultState());
+    
     formik.values.sources = e.target.dataset.value;
     setIsListOpened(!isListOpened);
   }
@@ -45,7 +52,7 @@ const SourcesSelect = () => {
         </li>
       </ul>
       <button className="selectButton headerBarText" onClick={handleButtonClick}>
-        {buttonText}
+        {sourcesSelect}
         <span><ArrowButtonIcon /></span>
       </button>
       <input

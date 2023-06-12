@@ -1,11 +1,19 @@
 import { createAsyncThunk, createSlice, createEntityAdapter } from '@reduxjs/toolkit';
 import axios from 'axios';
-import routes from '../const/routes.js';
 
 
-export const fetchCalls = createAsyncThunk('calls/fetchCalls', async (header) => {
-  const result = await axios.post(routes.getListPath(), { headers: header });
-  return result.data;
+export const fetchCalls = createAsyncThunk('calls/fetchCalls', async ({ route, authHeader }) => {
+  console.log(route)
+  console.log('33', JSON.stringify(authHeader))
+  let config = {
+    method: 'post',
+    maxBodyLength: Infinity,
+    url: route,
+    headers: authHeader,
+  };
+
+  const result = await axios.request(config);
+  return result.data.results;
 });
 
 const callsAdapter = createEntityAdapter();
@@ -16,6 +24,7 @@ const callsSlice = createSlice({
   initialState,
   reducers: {
     addCalls: callsAdapter.addMany,
+    removeCalls: callsAdapter.removeAll,
   },
   extraReducers: (builder) => {
     builder
@@ -24,6 +33,7 @@ const callsSlice = createSlice({
         state.error = null;
       })
       .addCase(fetchCalls.fulfilled, (state, action) => {
+        console.log('***', action.payload)
         callsAdapter.addMany(state, action.payload);
         state.loadingStatus = 'idle';
         state.error = null;

@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useSelector, useDispatch } from 'react-redux';
 
+import { changeSelectorsToDefault } from '../../../../slices/selectsUISlice';
 import SearchButton from '../../../header/SearchButton/SearchButton';
 import CloseIcon from '../../../../icons/CloseIcon';
 import TypesSelect from '../TypesSelect/TypesSelect';
@@ -14,6 +16,12 @@ import './FiltersAndSearch.css';
 
 const FiltersAndSearch = () => {
   const { t } = useTranslation();
+  const isAllSelectorsDefault = useSelector(({ selectsUI }) => selectsUI.isAllSelectorsDefault);
+  const dispatch = useDispatch();
+
+  const closeFiltersHandler = () => {
+    dispatch(changeSelectorsToDefault());
+  }
 
   return (
     <div id="filtersAndSearchContainer">
@@ -25,9 +33,13 @@ const FiltersAndSearch = () => {
       </div>
       <div id="filtersContainer">
         <div id="filtersFlexContainer">
-          {true && <div id="filtersClose" className="headerBarText">
+          {!isAllSelectorsDefault && <div
+              id="filtersClose"
+              className="headerBarText"
+              onClick={closeFiltersHandler}
+            >
               {t('context.closeFilters')}
-              <CloseIcon />
+              <button><CloseIcon /></button>
             </div>}
           <TypesSelect />
           <EmployeesSelect />

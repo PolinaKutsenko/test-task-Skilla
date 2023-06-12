@@ -33,8 +33,10 @@
   --header-bar-text: #122945;
 
   --context-search-text: #5E7793;
+  --calls-item-border: #EAF0FA;
 
   --primary-white: #FFFFFF;
+
 
 
 
@@ -86,7 +88,7 @@ body, p, span {
 }
 
 .headerNameText {
-  font-family: 'SF Pro Display';
+  font-family: 'SF Pro Display', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 15px;
@@ -106,7 +108,7 @@ body, p, span {
 }
 
 .filtersAndSearchText {
-  font-family: 'SF Pro Display';
+  font-family: 'SF Pro Display', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -116,7 +118,7 @@ body, p, span {
 }
 
 .selectText {
-  font-family: 'SF Pro Display';
+  font-family: 'SF Pro Display', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -125,13 +127,21 @@ body, p, span {
   color: var(--header-text);
 }
 
+.callsHeaderText {
+  font-family: 'SF Pro Display', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 100%;
 
+  color: var(--header-text);
+}
 
-
-
-
-
-
-
-
-
+.callItemSourceText {
+  font-family: 'SF Pro Display', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 132%;  
+  color: var(--context-search-text);
+}

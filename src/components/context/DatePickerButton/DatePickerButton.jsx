@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useFormik } from 'formik';
 import cn from 'classnames';
+import { useSelector, useDispatch } from 'react-redux';
 
+import { changeDateSelect } from '../../../slices/selectsUISlice';
 import CalendarIcon from '../../../icons/CalendarIcon';
 import ArrowButton from '../../header/ArrowButton/ArrowButton';
 import './DatePickerButton.css';
@@ -10,8 +12,10 @@ import './DatePickerButton.css';
 
 const DatePickerButton = () => {
   const { t } = useTranslation();
+  const dateSelect = useSelector(({ selectsUI }) => selectsUI.dateSelect);
+  const dispatch = useDispatch();
+
   const [isListOpened, setIsListOpened] = useState(false);
-  const [buttonText, setButtonText] = useState(t('context.calendar.threeDays'));
 
   const formik = useFormik({
     initialValues: {
@@ -29,7 +33,9 @@ const DatePickerButton = () => {
 
   const handleItemClick = (e) => {
     e.stopPropagation();
-    setButtonText(e.target.textContent);
+
+    dispatch(changeDateSelect(e.target.textContent));
+
     formik.values.date = e.target.dataset.value;
     setIsListOpened(!isListOpened);
   }
@@ -59,7 +65,7 @@ const DatePickerButton = () => {
             </ul>
             <button className="selectButton headerBarText" onClick={handleButtonClick}>
               <span><CalendarIcon /></span>
-              {buttonText}
+              {dateSelect}
             </button>
             <input
               type="text"

@@ -2,15 +2,19 @@ import React, { useState } from 'react';
 import { useFormik } from 'formik';
 import { useTranslation } from 'react-i18next';
 import cn from 'classnames';
+import { useSelector, useDispatch } from 'react-redux';
 
+import { changeSelectorsDefaultState, changeCallsSelect } from '../../../../slices/selectsUISlice';
 import ArrowButtonIcon from '../../../../icons/ArrowButtonIcon';
 import './CallsSelect.css';
 
 
 const CallsSelect = () => {
   const { t } = useTranslation();
+  const callsSelect = useSelector(({ selectsUI }) => selectsUI.callsSelect);
+  const dispatch = useDispatch();
+
   const [isListOpened, setIsListOpened] = useState(false);
-  const [buttonText, setButtonText] = useState(t('context.calls.allCalls'));
 
   const formik = useFormik({
     initialValues: {
@@ -28,7 +32,10 @@ const CallsSelect = () => {
 
   const handleItemClick = (e) => {
     e.stopPropagation();
-    setButtonText(e.target.textContent);
+
+    dispatch(changeCallsSelect(e.target.textContent));
+    dispatch(changeSelectorsDefaultState());
+    
     formik.values.calls = e.target.dataset.value;
     setIsListOpened(!isListOpened);
   }
@@ -60,7 +67,7 @@ const CallsSelect = () => {
         </li>
       </ul>
       <button className="selectButton headerBarText" onClick={handleButtonClick}>
-        {buttonText}
+        {callsSelect}
         <span><ArrowButtonIcon /></span>
       </button>
       <input
