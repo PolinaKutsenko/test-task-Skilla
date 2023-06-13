@@ -1,12 +1,14 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { selectors } from '../../../slices/callsSlice';
+import parserCalls from '../../../formatters/parserCalls';
+import CheckboxButton from '../callItem/CheckboxButton/CheckboxButton';
 import BalanceButton from '../BalanceButton/BalanceButton';
 import DatePickerButton from '../DatePickerButton/DatePickerButton';
 import FiltersAndSearch from '../filtersAndSearch/FiltersAndSearch/FiltersAndSearch';
-import CallItem from '../CallItem/CallItem';
+import CallItem from '../callItem/CallItem/CallItem';
 import './Context.css';
 
 
@@ -20,6 +22,96 @@ const Context = () => {
       
     }
   }*/
+  const parsedCallsList = useMemo(() => {
+    console.log('%%%%%%%%%%%%%%%', parserCalls(calls));
+    return parserCalls(calls);
+  }, [calls]);
+
+  const todayCalls = useMemo(() => {
+    if (!parsedCallsList.today.length) {
+      return null;
+    }
+    return (
+      <>
+        {parsedCallsList.today.map((callItem) => <CallItem key={callItem.id} call={callItem} />)}
+      </>
+    );
+  }, [parsedCallsList]);
+
+  const yesterdayCalls = useMemo(() => {
+    if (!parsedCallsList.yesterday.length) {
+      return null;
+    }
+    return (
+      <>
+        <div className="dateOfParsedCalls">
+          <p className="recordItemText">{t('context.parsingCalls.yesterday')}</p>
+          <p className="parsingCallsCountText">{parsedCallsList.yesterday.length}</p>
+        </div>
+        {parsedCallsList.yesterday.map((callItem) => <CallItem key={callItem.id} call={callItem} />)}
+      </>
+    );
+  }, [parsedCallsList]);
+
+  const currentMonthCalls = useMemo(() => {
+    if (!parsedCallsList.currentMonth.length) {
+      return null;
+    }
+    return (
+      <>
+        <div className="dateOfParsedCalls">
+          <p className="recordItemText">{t('context.parsingCalls.currentMonth')}</p>
+          <p className="parsingCallsCountText">{parsedCallsList.currentMonth.length}</p>
+        </div>
+        {parsedCallsList.currentMonth.map((callItem) => <CallItem key={callItem.id} call={callItem} />)}
+      </>
+    );
+  }, [parsedCallsList]);
+
+  const lastMonthCalls = useMemo(() => {
+    if (!parsedCallsList.lastMonth.length) {
+      return null;
+    }
+    return (
+      <>
+        <div className="dateOfParsedCalls">
+          <p className="recordItemText">{t('context.parsingCalls.lastMonth')}</p>
+          <p className="parsingCallsCountText">{parsedCallsList.lastMonth.length}</p>
+        </div>
+        {parsedCallsList.lastMonth.map((callItem) => <CallItem key={callItem.id} call={callItem} />)}
+      </>
+    );
+  }, [parsedCallsList]);
+
+  const currentYearCalls = useMemo(() => {
+    if (!parsedCallsList.currentYear.length) {
+      return null;
+    }
+    return (
+      <>
+        <div className="dateOfParsedCalls">
+          <p className="recordItemText">{t('context.parsingCalls.currentYear')}</p>
+          <p className="parsingCallsCountText">{parsedCallsList.currentYear.length}</p>
+        </div>
+        {parsedCallsList.currentYear.map((callItem) => <CallItem key={callItem.id} call={callItem} />)}
+      </>
+    );
+  }, [parsedCallsList]);
+
+  const beforeLastYearCalls = useMemo(() => {
+    if (!parsedCallsList.beforeLastYear.length) {
+      return null;
+    }
+    return (
+      <>
+        <div className="dateOfParsedCalls">
+          <p className="recordItemText">{t('context.parsingCalls.beforeLastYear')}</p>
+          <p className="parsingCallsCountText">{parsedCallsList.beforeLastYear.length}</p>
+        </div>
+        {parsedCallsList.beforeLastYear.map((callItem) => <CallItem key={callItem.id} call={callItem} />)}
+      </>
+    );
+  }, [parsedCallsList]);
 
   return (
     <div id="contextContainer">
@@ -30,6 +122,7 @@ const Context = () => {
         <div id="callsFlexContainer">
           <div id="callsListHeader">
             <div id="callsListHeaderContainer" className="callsHeaderText">
+              <div id="callsHeaderCheckbox"><CheckboxButton /></div>
               <div id="callsHeaderType">{t('context.callsHeader.type')}</div>
               <div id="callsHeaderTime">{t('context.callsHeader.time')}</div>
               <div id="callsHeaderEmployees">{t('context.callsHeader.employees')}</div>
@@ -40,7 +133,12 @@ const Context = () => {
             </div>
           </div>
           <div id="callsList">
-            {calls.map((callItem) => <CallItem key={callItem.id} call={callItem} />)}
+            {todayCalls}
+            {yesterdayCalls}
+            {currentMonthCalls}
+            {lastMonthCalls}
+            {currentYearCalls}
+            {beforeLastYearCalls}
           </div>
         </div>
       </div>

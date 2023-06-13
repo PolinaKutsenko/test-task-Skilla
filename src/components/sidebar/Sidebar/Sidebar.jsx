@@ -77,12 +77,14 @@ const Sidebar = () => {
 
   return (
     <div id="sidebar">
-      <div id="sidebarLogo">
-        <SkillaLogoIcon />
+      <div id="sidebarContainer">
+        <div id="sidebarLogo">
+          <SkillaLogoIcon />
+        </div>
+        {sidebarList}
+        <AddOrderButton />
+        <PaymentButton />
       </div>
-      {sidebarList}
-      <AddOrderButton />
-      <PaymentButton />
     </div>
   );
 };

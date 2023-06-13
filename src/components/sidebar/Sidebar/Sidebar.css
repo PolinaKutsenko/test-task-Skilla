@@ -8,6 +8,16 @@
   background: var(--sidebar-background);
 }
 
+#sidebarContainer {
+  position: absolute;
+  width: 240px;
+  height: 963px;
+  left: 0px;
+  top: 0px;
+
+  background: var(--sidebar-background);
+}
+
 #sidebarLogo{
   position: absolute;
   left: 5%;

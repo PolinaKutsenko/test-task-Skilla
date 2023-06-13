@@ -1,0 +1,11 @@
+.checkboxButton {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+#checkboxActiveIcon {
+    position: absolute;
+    bottom: 2px;
+    left: -2px;
+}

@@ -36,12 +36,8 @@
   --calls-item-border: #EAF0FA;
 
   --primary-white: #FFFFFF;
-
-
-
-
-
-
+  --call-item-hover: rgba(212, 223, 243, 0.17);
+  --record-playback: #ADBFDF;
 }
 
 body, p, span {
@@ -144,4 +140,31 @@ body, p, span {
   font-size: 15px;
   line-height: 132%;  
   color: var(--context-search-text);
+}
+
+.recordItemText {
+  font-family: 'SF Pro Display', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 145%;  
+  color: var(--header-bar-text);
+}
+
+.recordItemPlaybackTimeText {
+  font-family: 'SF Pro Display', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 145%;  
+  color: var(--header-bar-text);
+}
+
+.parsingCallsCountText {
+  font-family: 'SF Pro Display', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 100%;  
+  color: var(--header-text);
 }

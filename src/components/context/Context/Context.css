@@ -1,17 +1,17 @@
 #contextContainer {
     position: absolute;
     width: 1440px;
-    height: 2120px;
     left: 360px;
     top: 64px;
+    bottom: 546px;
 }
 
 #callsContainer {
     position: absolute;
     width: 1440px;
-    height: 1985px;
     left: 0px;
     top: 135px;
+    bottom: 0px;
     
     background: var(--primary-white);
     
@@ -58,6 +58,15 @@
     flex-grow: 0;
 }
 
+#callsHeaderCheckbox {
+    position: absolute;
+    left: 0.83%;
+    right: 98.06%;
+    top: 6.25%;
+    bottom: -6.25%;
+
+    display: none;
+}
 
 #callsHeaderType {
     position: absolute;
@@ -123,9 +132,45 @@
 
     position: absolute;
     width: 1440px;
-    height: 1075px; /**/
+    height: 100%;
     left: 0px;
     top: 36px;
+    overflow-y: auto;
+}
+
+#callsList::-webkit-scrollbar {
+    width: 0px;
+}
+
+.dateOfParsedCalls {
+    width: 1400px;
+    height: 78px;
+    position: relative;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 4px;
+
+    padding-left: 40px;
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.dateOfParsedCalls .recordItemText {
+    display: flex;
     
-    border: 1px solid red;
+    height: 22px;
+    margin-top: 39px;
+    
+    letter-spacing: 0.01em;
+}
+
+.dateOfParsedCalls .parsingCallsCountText {
+    display: flex;
+    
+    height: 12px;
+    margin-top: 40px;
 }

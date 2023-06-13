@@ -72,7 +72,7 @@ const CallsApiProvider = ({ children }) => {
     }
     searchParams.append('date_start', getStartDate(dateSelect));
     searchParams.append('date_end', getEndDate(dateSelect));
-    searchParams.append('limit', 1000);
+    searchParams.append('limit', 10000);
 
     return searchParams.toString();
   }, []);

@@ -82,7 +82,14 @@ export default {
         source: 'Источник',
         rating: 'Оценка',
         duration: 'Длительность',
-      }
+      },
+      parsingCalls: {
+        yesterday: 'вчера',
+        currentMonth: 'в этом месяце',
+        lastMonth: 'в прошлом месяце',
+        currentYear: 'в этом году',
+        beforeLastYear: 'в прошлых годах',
+      },
     },
     notFoundPage: {
       pageNotFound: 'Страница не найдена',

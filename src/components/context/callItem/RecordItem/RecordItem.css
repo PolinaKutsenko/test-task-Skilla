@@ -1,0 +1,137 @@
+.recordItem {
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    top: 0%;
+    bottom: 0%;
+    
+    background: var(--calls-item-border);
+    border-radius: 48px;
+}
+
+.recordItemDuration {
+    position: absolute;
+    left: 5.4%;
+    top: 29.17%;
+    bottom: 25%;
+        
+    text-align: right;
+}
+
+.playButton {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    left: 19.32%;
+    top: 25%;
+
+    padding: 0;
+    border: none;
+}
+
+.roundButton {
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    top: 0%;
+    bottom: 0%;
+    
+    background: var(--primary-white);
+    border-radius: 24px;
+
+    cursor: url("../../../../icons/Cursor.png"), pointer;
+}
+
+#stopRecordIcon {
+    position: absolute;
+    left: 33.3%;
+    right: 33.3%;
+    top: 33.3%;
+    bottom: 33.3%;
+
+    cursor: url("../../../../icons/Cursor.png"), pointer;
+
+}
+
+#playRecordIcon {
+    position: absolute;
+    left: 37.5%;
+    right: 29.17%;
+    top: 29.17%;
+    bottom: 29.17%;
+
+    cursor: url("../../../../icons/Cursor.png"), pointer;
+
+}
+
+.recordItem .recordItemPlaybackTimeText {
+    position: absolute;
+    right: 60.51%;
+    top: 6.25%;
+    bottom: 52.08%;
+    
+    text-align: right;
+}
+
+.downloadButton {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    left: 78.41%;
+    top: 25%;
+
+    padding: 0;
+    border: none;
+    background: var(--calls-item-border);
+
+    cursor: url("../../../../icons/Cursor.png"), pointer;
+}
+
+.downloadButton svg {
+    position: absolute;
+    left: 25%;
+    top: 16.67%;
+    bottom: 16.67%;
+}
+
+.closeRecordButton {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    left: 88.63%;
+    top: 25%;
+
+    padding: 0;
+    border: none;
+    background: var(--calls-item-border);
+
+    display: flex;
+    align-items: center;
+
+    cursor: url("../../../../icons/Cursor.png"), pointer;
+}
+
+.timeline {
+    position: absolute;
+    left: 28.41%;
+    right: 25%;
+    top: 47.92%;
+    bottom: 43.75%;
+
+    height: 4px; 
+    
+    margin: 0;
+    padding: 0;
+    border-radius: 50px;
+    border: none;
+    background: var(--record-playback);
+    cursor: url("../../../../icons/Cursor.png"), pointer;
+}
+
+.timeline progress{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
