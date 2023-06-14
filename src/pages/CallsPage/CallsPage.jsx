@@ -26,20 +26,21 @@ const CallsPage = () => {
   } = useCallsApi();
 
   useEffect(() => {
-    console.log('&&&', typesSelect)
     const authHeader = getAuthHeader();
     dispatch(actions.removeCalls());
+    console.log('00000')
     const route = `${routes.getListPath()}?${getSearchParamsForCalls(dateSelect, typesSelect)}`;
     dispatch(fetchCalls({ route, authHeader }));
   }, [typesSelect, dateSelect])
 
   useEffect(() => {
+    console.log('*********')
     const authHeader = getAuthHeader();
 
     calls.forEach((call) => {
       if (call.record) {
         const route = `${routes.getRecordPath()}?${getSearchParamsForRecord(call.record, call.partnership_id)}`;
-        //dispatch(fetchRecord({ route, authHeader }));
+        dispatch(fetchRecord({ route, authHeader, partnership_id: call.partnership_id, record_id: call.record }));
       }
     });
   }, [calls])

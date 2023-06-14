@@ -97,7 +97,7 @@
     padding: 6px 0 6px 21px;
 }
 
-#dateFilter .selectList .selectListItem-selected {
+#dataPickerContainer #dateFilter .selectList .selectListItem-selected {
     color: var(--sidebar-active-line);
 }
 
@@ -151,4 +151,46 @@
 
 #dataPickerFlexContainer #rightButton button  {
     background: var(--call-page-background);
+}
+
+#specifyDate {
+    margin: 0;
+    padding: 6px 0 6px 21px;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+#dateInputs {
+    width: 116px;
+    height: 28px;
+}
+
+#dateInputs input {
+    margin: 0;
+    padding: 0;
+    width: 14px;
+    height: 15px;
+
+    outline: none;
+    border: none;
+    border-bottom: 1px solid var(--header-text);
+}
+
+#specifyDate:hover input {
+    background: var(--primary-blue-13pr);
+}
+
+#dateInputAndCalendarContainer {
+    margin: 0;
+    padding: 0;
+    width: 162px;
+    height: 28px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 29px;
 }

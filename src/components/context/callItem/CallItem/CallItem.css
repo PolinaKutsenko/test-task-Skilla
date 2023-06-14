@@ -154,7 +154,7 @@
     
     position: absolute;
     width: 254px;
-    height: 47px;
+    height: 56px;
     left: 22.14%;
     top: 9.23%;
 }
@@ -178,9 +178,20 @@
     white-space: normal;
 }
 
+.noScript {
+    position: absolute;
+    width: 146px;
+    height: 20px;
+    left: 852px;
+    top: 22px;
+}
 
-
-
+.telephoneNumber .partnerName {
+    color: var(--context-search-text);
+    overflow-wrap: break-word;
+    max-width: 254px;
+    white-space: normal
+}
 
 
 

@@ -94,6 +94,10 @@
     bottom: 16.67%;
 }
 
+.downloadButton:hover svg path {
+    fill: var(--sidebar-active-line);
+}
+
 .closeRecordButton {
     position: absolute;
     width: 24px;
@@ -110,6 +114,11 @@
 
     cursor: url("../../../../icons/Cursor.png"), pointer;
 }
+
+.closeRecordButton:hover svg path {
+    fill: var(--sidebar-active-line);
+}
+
 
 .timeline {
     position: absolute;

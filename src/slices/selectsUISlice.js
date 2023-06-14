@@ -64,6 +64,7 @@ const selectsUISlice = createSlice({
       state.typesSelect = action.payload;
     },
     changeDateSelect: (state, action) => {
+      console.log('**', action.payload)
       state.dateSelect = action.payload;
     },
   },

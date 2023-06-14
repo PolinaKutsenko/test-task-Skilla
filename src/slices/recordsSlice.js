@@ -2,9 +2,7 @@ import { createAsyncThunk, createSlice, createEntityAdapter } from '@reduxjs/too
 import axios from 'axios';
 
 
-export const fetchRecord = createAsyncThunk('records/fetchRecord', async ({ route, authHeader }) => {
-  //console.log(route)
-  //console.log('33', JSON.stringify(authHeader))
+export const fetchRecord = createAsyncThunk('records/fetchRecord', async ({ route, authHeader, partnership_id, record_id }) => {
   let config = {
     method: 'post',
     maxBodyLength: Infinity,
@@ -17,9 +15,13 @@ export const fetchRecord = createAsyncThunk('records/fetchRecord', async ({ rout
     },
   };
 
+  
   const result = await axios.request(config);
-  //console.log(result.data)
-  //return result.data.results;
+  return {
+    partnership_id,
+    id: record_id,
+    record: result.data
+  }
 });
 
 const recordsAdapter = createEntityAdapter();

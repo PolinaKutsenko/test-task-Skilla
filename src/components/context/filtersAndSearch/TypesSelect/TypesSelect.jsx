@@ -15,10 +15,6 @@ const TypesSelect = () => {
   const { t } = useTranslation();
   const typesSelect = useSelector(({ selectsUI }) => selectsUI.typesSelect);
   const dispatch = useDispatch();
-  const {
-    getAuthHeader,
-    getSearchParamsForCalls,
-  } = useCallsApi();
 
   const [isListOpened, setIsListOpened] = useState(false);
 

@@ -23,7 +23,6 @@ const Context = () => {
     }
   }*/
   const parsedCallsList = useMemo(() => {
-    console.log('%%%%%%%%%%%%%%%', parserCalls(calls));
     return parserCalls(calls);
   }, [calls]);
 

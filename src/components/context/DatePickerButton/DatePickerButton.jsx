@@ -12,14 +12,19 @@ import './DatePickerButton.css';
 
 const DatePickerButton = () => {
   const { t } = useTranslation();
-  const dateSelect = useSelector(({ selectsUI }) => selectsUI.dateSelect);
+  const dateSelect = useSelector(({ selectsUI }) => selectsUI.dateSelect?.type ? selectsUI.dateSelect.type : selectsUI.dateSelect);
   const dispatch = useDispatch();
 
   const [isListOpened, setIsListOpened] = useState(false);
 
   const formik = useFormik({
     initialValues: {
-      date: '3 дня',
+      dayBefore: '',
+      monthBefore: '',
+      yearBefore: '',
+      dayAfter: '',
+      monthAfter: '',
+      yearAfter: '',
     },
   });
 
@@ -28,7 +33,7 @@ const DatePickerButton = () => {
   });
 
   const listItemClassNames = (dataValue) => (cn('selectListItem', {
-    'selectListItem-selected': dataValue === formik.values.date,
+    'selectListItem-selected': dataValue === dateSelect || dataValue === dateSelect?.type,
   }));
 
   const handleItemClick = (e) => {
@@ -36,12 +41,32 @@ const DatePickerButton = () => {
 
     dispatch(changeDateSelect(e.target.textContent));
 
-    formik.values.date = e.target.dataset.value;
     setIsListOpened(!isListOpened);
   }
 
   const handleButtonClick = () => {
     setIsListOpened(!isListOpened);
+  }
+
+  const enterPressed = (e) => {
+    const code = e.keyCode || e.which;
+    if(code === 13) {
+      console.log(`${formik.values.dayBefore}.${formik.values.monthBefore}.${formik.values.yearBefore}-${formik.values.dayAfter}.${formik.values.monthAfter}.${formik.values.yearAfter}`)
+      dispatch(changeDateSelect({
+        type: 'Указать даты',
+        dateBefore: `20${formik.values.yearBefore}-${formik.values.monthBefore}-${formik.values.dayBefore}`,
+        dateAfter: `20${formik.values.yearAfter}-${formik.values.monthAfter}-${formik.values.dayAfter}`,
+      }));
+
+      formik.values.dayBefore = '';
+      formik.values.monthBefore = '';
+      formik.values.yearBefore = '';
+      formik.values.dayAfter = '';
+      formik.values.monthAfter = '';
+      formik.values.yearAfter = '';
+    
+      setIsListOpened(!isListOpened);
+    } 
   }
 
   return (
@@ -50,32 +75,48 @@ const DatePickerButton = () => {
         <div id="leftButton"><ArrowButton /></div>
           <div id="dateFilter">
             <ul className={listClassNames}>
-              <li className={listItemClassNames('threeDays')} data-value="threeDays" onClick={handleItemClick}>
+              <li className={listItemClassNames('3 дня')} data-value="threeDays" onClick={handleItemClick}>
                 {t('context.calendar.threeDays')}
               </li>
-              <li className={listItemClassNames('week')} data-value="week" onClick={handleItemClick}>
+              <li className={listItemClassNames('Неделя')} data-value="week" onClick={handleItemClick}>
                 {t('context.calendar.week')}
               </li>
-              <li className={listItemClassNames('month')} data-value="month" onClick={handleItemClick}>
+              <li className={listItemClassNames('Месяц')} data-value="month" onClick={handleItemClick}>
                 {t('context.calendar.month')}
               </li>
-              <li className={listItemClassNames('year')} data-value="year" onClick={handleItemClick}>
+              <li className={listItemClassNames('Год')} data-value="year" onClick={handleItemClick}>
                 {t('context.calendar.year')}
+              </li>
+              <li
+                id="specifyDate"
+                className={listItemClassNames('Указать даты')}
+                data-value="specifyDate"
+                onKeyDown={enterPressed}
+              >
+                {t('context.calendar.specifyDate')}
+                <div id="dateInputAndCalendarContainer">
+                  <div id="dateInputs">
+                    <input type="text" maxLength="2" id="dayBefore" name="dayBefore" value={formik.values.dayBefore} onChange={formik.handleChange} />
+                    {'.'}
+                    <input type="text" maxLength="2" id="monthBefore" name="monthBefore" value={formik.values.monthBefore} onChange={formik.handleChange} />
+                    {'.'}
+                    <input type="text" maxLength="2" id="yearBefore" name="yearBefore" value={formik.values.yearBefore} onChange={formik.handleChange} />
+                    {'-'}
+                    <input type="text" maxLength="2" id="dayAfter" name="dayAfter" value={formik.values.dayAfter} onChange={formik.handleChange} />
+                    {'.'}
+                    <input type="text" maxLength="2" id="monthAfter" name="monthAfter" value={formik.values.monthAfter} onChange={formik.handleChange} />
+                    {'.'}
+                    <input type="text" maxLength="2" id="yearAfter" name="yearAfter" value={formik.values.yearAfter} onChange={formik.handleChange} />
+                  </div>
+                  <span><CalendarIcon /></span>
+                </div>
               </li>
             </ul>
             <button className="selectButton headerBarText" onClick={handleButtonClick}>
               <span><CalendarIcon /></span>
               {dateSelect}
             </button>
-            <input
-              type="text"
-              id="date"
-              name="date"
-              value={formik.values.date}
-              onChange={formik.handleChange}
-              className="inputHidden"
-            />
-      </div>
+          </div>
         <div id="rightButton"><ArrowButton /></div>
       </div>
     </div>

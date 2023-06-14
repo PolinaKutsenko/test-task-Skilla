@@ -168,3 +168,21 @@ body, p, span {
   line-height: 100%;  
   color: var(--header-text);
 }
+
+.noScriptText {
+  font-family: 'SF Pro Display', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 140%;  
+  color: var(--header-red-orders);
+}
+
+.telephoneNumberText {
+  font-family: 'SF Pro Display', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 140%;  
+  color: var(--header-bar-text);
+}

@@ -33,7 +33,7 @@ const callsSlice = createSlice({
         state.error = null;
       })
       .addCase(fetchCalls.fulfilled, (state, action) => {
-        console.log('***', action.payload)
+        console.log('@@@@@', action.payload)
         callsAdapter.addMany(state, action.payload);
         state.loadingStatus = 'idle';
         state.error = null;

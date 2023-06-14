@@ -49,7 +49,7 @@ const CallsApiProvider = ({ children }) => {
           date.setFullYear(date.getFullYear() - 1);
           break;
         default:
-          date = new Date();
+          date = new Date(dateSelect.dateBefore);
           break;
       }
       return formatDateToStringByDash(date);
@@ -57,8 +57,12 @@ const CallsApiProvider = ({ children }) => {
   }, []);
 
   const getEndDate = useCallback((dateSelect) => {
-    if (dateSelect !== 'Указать даты') {
+    if (dateSelect?.type !== 'Указать даты') {
       const date = new Date();
+      return formatDateToStringByDash(date);
+    } else {
+      const date = new Date(dateSelect.dateAfter);
+
       return formatDateToStringByDash(date);
     }
   }, []);
@@ -74,6 +78,7 @@ const CallsApiProvider = ({ children }) => {
     searchParams.append('date_end', getEndDate(dateSelect));
     searchParams.append('limit', 10000);
 
+    console.log('!!!!', searchParams.toString())
     return searchParams.toString();
   }, []);
   
