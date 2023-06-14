@@ -1,4 +1,4 @@
-# Deploying Site https://test-task-skilla-seven.vercel.app/calls
+# Deploying Site https://test-task-skilla-seven.vercel.app
 
 # Getting Started with Create React App
 
