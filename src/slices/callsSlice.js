@@ -3,8 +3,6 @@ import axios from 'axios';
 
 
 export const fetchCalls = createAsyncThunk('calls/fetchCalls', async ({ route, authHeader }) => {
-  console.log(route)
-  console.log('33', JSON.stringify(authHeader))
   let config = {
     method: 'post',
     maxBodyLength: Infinity,
@@ -33,7 +31,6 @@ const callsSlice = createSlice({
         state.error = null;
       })
       .addCase(fetchCalls.fulfilled, (state, action) => {
-        console.log('@@@@@', action.payload)
         callsAdapter.addMany(state, action.payload);
         state.loadingStatus = 'idle';
         state.error = null;

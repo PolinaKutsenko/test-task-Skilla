@@ -17,10 +17,13 @@ export const fetchRecord = createAsyncThunk('records/fetchRecord', async ({ rout
 
   
   const result = await axios.request(config);
+
+  const blob = new Blob([result.data], { type: 'audio/webm;codecs=opus' })
+  const src = URL.createObjectURL(blob);
   return {
     partnership_id,
     id: record_id,
-    record: result.data
+    record: src
   }
 });
 

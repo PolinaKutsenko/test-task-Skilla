@@ -1,20 +1,20 @@
 #callsAnalytic {
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
+    align-items: center;
     padding: 0px;
     gap: 56px;
 
-    position: absolute;
-    width: 594px;
-    height: 34px;
-    left: 296px;
-    top: 14px;
+    padding-left: 86px;
+    padding-right: 197px;
 }
 
 #newCalls {
-    width: 162px;
-    height: 34px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 7px;
 
     flex: none;
     order: 0;
@@ -22,11 +22,9 @@
 }
 
 #callsBar {
-    position: absolute;
-    left: 0%;
-    right: 73.74%;
-    top: 82.35%;
-    bottom: 0%;
+    position: relative;
+    height: 6px;
+    width: 156px;
 
     background: var(--header-bar-background);
     border-radius: 12px;
@@ -44,13 +42,7 @@
     border-radius: 12px 0px 0px 12px;
 }
 
-#newCalls .headerBarText {
-    position: absolute;
-    width: 162px;
-    height: 21px;
-    left: 0px;
-    top: calc(50% - 21px/2 - 6.5px);
-        
+#newCalls .headerBarText {        
     display: flex;
     align-items: flex-end;
     gap: 2px;
@@ -61,12 +53,22 @@
     margin: 0;
 }
 
+#callsQuality {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 7px;
+
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
 #callsQualityBar {
-    position: absolute;
-    left: 36.7%;
-    right: 37.04%;
-    top: 82.35%;
-    bottom: 0%;
+    position: relative;
+    height: 6px;
+    width: 156px;
 
     background: var(--header-bar-background);
     border-radius: 12px;
@@ -84,13 +86,7 @@
     border-radius: 12px 0px 0px 12px;
 }
 
-#callsQuality .headerBarText {
-    position: absolute;
-    width: 164px;
-    height: 21px;
-    left: 36.7%;
-    top: calc(50% - 21px/2 - 6.5px);
-        
+#callsQuality .headerBarText {        
     display: flex;
     align-items: flex-end;
     gap: 2px;
@@ -101,12 +97,22 @@
     margin: 0;
 }
 
+#conversionToAnOrder {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 7px;
+
+    flex: none;
+    order: 2;
+    flex-grow: 0;
+}
+
 #conversionBar {
-    position: absolute;
-    left: 73.74%;
-    right: 0%;
-    top: 82.35%;
-    bottom: 0%;
+    position: relative;
+    height: 6px;
+    width: 156px;
 
     background: var(--header-bar-background);
     border-radius: 12px;
@@ -123,13 +129,7 @@
     border-radius: 12px 0px 0px 12px;
 }
 
-#conversionToAnOrder .headerBarText {
-    position: absolute;
-    width: 145px;
-    height: 21px;
-    left: 438px;
-    top: calc(50% - 21px/2 - 6.5px);
-   
+#conversionToAnOrder .headerBarText {   
     display: flex;
     align-items: flex-end;
 

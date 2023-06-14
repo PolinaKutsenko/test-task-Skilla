@@ -1,9 +1,6 @@
 #dataPickerContainer {
-    position: absolute;
-    width: 115px;
+    position: relative;
     height: 24px;
-    left: 1325px;
-    top: 28px;
 
     cursor: url("../../../icons/Cursor.png"), pointer;
 }
@@ -15,12 +12,6 @@
     align-items: center;
     padding: 0px;
     gap: 12px;
-
-    position: absolute;
-    left: 0%;
-    right: 0%;
-    top: 0%;
-    bottom: 0%;
 }
 
 #dateFilter {
@@ -33,7 +24,6 @@
     position: relative;
 
     height: 18px;
-
 
     flex: none;
     order: 1;
@@ -73,11 +63,7 @@
   
     box-sizing: border-box;
     width: 204px;
-  
-    position: absolute;
-    right: 0%;
-    top: calc(21px + 8px);
-    
+      
     background: #FFFFFF;
     border: 1px solid #EAF0FA;
     
@@ -108,8 +94,6 @@
 }
 
 .inputHidden {
-    position: absolute;
-    top: 30px;
     display: none;
 }
 
@@ -123,10 +107,6 @@
 
 #dataPickerFlexContainer #leftButton  {
     rotate: 90deg;
-    position: absolute;
-    left: -6.52%;
-    top: 0%;
-    bottom: 0%;
 
     flex: none;
     order: 0;
@@ -139,10 +119,6 @@
 
 #dataPickerFlexContainer #rightButton {
     rotate: 270deg;
-    position: absolute;
-    right: -6.52%;
-    top: 0%;
-    bottom: 0%;
 
     flex: none;
     order: 2;

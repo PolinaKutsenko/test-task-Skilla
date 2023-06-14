@@ -5,7 +5,6 @@
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
-    gap: 15px;
 
     width: 240px;
     height: 52px;
@@ -18,13 +17,15 @@
 }
 
 .currentLine {
-    position: absolute;
+    position: relative;
     width: 3px;
     height: 52px;
-    right: 237px;
-    top: 0px;
 
     background: var(--sidebar-background);
+}
+
+.sidebarItem .sidebarItemText {
+    padding-left: 15px;
 }
 
 .isActive {
@@ -48,5 +49,9 @@
 }
 
 .itemIcon {
-    padding-left: 12px;
+    padding-left: 9px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

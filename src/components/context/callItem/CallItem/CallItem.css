@@ -1,3 +1,9 @@
+.callItemContainer {
+    width: 1440px;
+    height: 65px;
+    position: relative;
+}
+
 .callItem {
     width: 1400px;
     height: 65px;
@@ -8,7 +14,8 @@
     cursor: url("../../../../icons/Cursor.png"), pointer;
 }
 
-.callItem:hover {
+
+.callItemContainer:hover {
     background: var(--call-item-hover);
 }
 
@@ -16,10 +23,7 @@
     display: none;
 }
 
-/*.callItem:hover .callItemRecord {
-    display: block;
-}*/
-.callItem .callItemRecord {
+.callItem:hover .callItemRecord {
     display: block;
 }
 
@@ -192,12 +196,6 @@
     max-width: 254px;
     white-space: normal
 }
-
-
-
-
-
-
 
 .callItemDuration {
     position: absolute;

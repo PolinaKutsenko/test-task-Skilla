@@ -9,22 +9,22 @@ const CallsAnalytic = () => {
   return (
     <div id="callsAnalytic">
       <div id="newCalls">
-        <div id="callsBar"><div /></div>
         <div className="headerBarText">
           {t('header.newCalls')}<p>{t('header.count20Of30')}</p>
         </div>
+        <div id="callsBar"><div /></div>
       </div>
       <div id="callsQuality">
-        <div id="callsQualityBar"><div /></div>
         <div className="headerBarText">
           {t('header.callsQuality')}<p>{t('header.percent40')}</p>
         </div>
+        <div id="callsQualityBar"><div /></div>
       </div>
       <div id="conversionToAnOrder">
-        <div id="conversionBar"><div /></div>
         <div className="headerBarText">
           {t('header.conversionToOrder')}<p>{t('header.conversion67')}</p>
         </div>
+        <div id="conversionBar"><div /></div>
       </div>
     </div>
   );

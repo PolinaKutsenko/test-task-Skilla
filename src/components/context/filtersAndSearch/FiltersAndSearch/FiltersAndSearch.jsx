@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { changeSelectorsToDefault } from '../../../../slices/selectsUISlice';
-import SearchButton from '../../../header/SearchButton/SearchButton';
+import SearchIcon from '../../../../icons/SearchIcon';
 import CloseIcon from '../../../../icons/CloseIcon';
 import TypesSelect from '../TypesSelect/TypesSelect';
 import EmployeesSelect from '../EmployeesSelect/EmployeesSelect';
@@ -26,9 +26,9 @@ const FiltersAndSearch = () => {
   return (
     <div id="filtersAndSearchContainer">
       <div id="searchContainer">
+        <div><SearchIcon /></div>
         <div className="filtersAndSearchText">
-          <span><SearchButton /></span>
-          <p>{t('context.сallSearch')}</p>
+          {t('context.сallSearch')}
         </div>
       </div>
       <div id="filtersContainer">

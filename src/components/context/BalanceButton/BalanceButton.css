@@ -1,9 +1,7 @@
 #balanceButton {
-    position: absolute;
+    position: relative;
     width: 145px;
     height: 40px;
-    left: 1132px;
-    top: 20px;
 
     background: var(--primary-white);
     border-radius: 48px;

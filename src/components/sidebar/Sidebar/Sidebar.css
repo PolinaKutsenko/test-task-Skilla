@@ -1,17 +1,15 @@
-#sidebar {
-  position: absolute;
-  width: 240px;
-  height: 2730px;
+#sidebarContainer {
+  position: relative;
+  max-width: 240px;
   left: 0px;
   top: 0px;
 
   background: var(--sidebar-background);
 }
 
-#sidebarContainer {
-  position: absolute;
-  width: 240px;
-  height: 963px;
+#sidebar {
+  position: relative;
+  width: 100%;
   left: 0px;
   top: 0px;
 
@@ -19,11 +17,9 @@
 }
 
 #sidebarLogo{
-  position: absolute;
-  left: 5%;
-  right: 49.58%;
-  top: 2.08%;
-  bottom: 95.02%;
+  position: relative;
+  left: 12px;
+  top: 20px;
 }
 
 #sidebarListContainer {
@@ -31,10 +27,12 @@
   flex-direction: column;
   align-items: flex-start;
   padding: 0px;
+  margin: 0;
 
-  position: absolute;
+  position: relative;
   width: 240px;
   height: 520px;
   left: 0px;
-  top: 80px;
+  right: 0px;
+  top: 49px;
 }

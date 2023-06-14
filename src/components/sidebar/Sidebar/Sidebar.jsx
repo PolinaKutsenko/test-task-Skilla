@@ -76,8 +76,8 @@ const Sidebar = () => {
   ), [t]);
 
   return (
-    <div id="sidebar">
-      <div id="sidebarContainer">
+    <div id="sidebarContainer">
+      <div id="sidebar">
         <div id="sidebarLogo">
           <SkillaLogoIcon />
         </div>

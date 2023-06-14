@@ -1,9 +1,9 @@
 #paymentButton {
-    position: absolute;
+    position: relative;
     width: 200px;
     height: 52px;
     left: 20px;
-    top: 748px;
+    top: 145px;
   
     border: none;
     padding: 0;
@@ -17,17 +17,21 @@
     width: 54px;
     height: 24px;
     left: 65px;
-    top: 13px;
+    top: 14px;
   
     margin: 0;
+    padding: 0;
   }
   
   #paymentIcon {
     position: absolute;
-    width: 24px;
-    height: 24px;
-    left: 156px;
-    top: 14px;
+    width: 30px;
+    height: 30px;
+    left: 150px;
+    top: 11px;
+
+    display: flex;
+    align-items: center;
   }
   
   #paymentButton:hover {

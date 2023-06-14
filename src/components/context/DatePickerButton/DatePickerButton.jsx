@@ -51,7 +51,6 @@ const DatePickerButton = () => {
   const enterPressed = (e) => {
     const code = e.keyCode || e.which;
     if(code === 13) {
-      console.log(`${formik.values.dayBefore}.${formik.values.monthBefore}.${formik.values.yearBefore}-${formik.values.dayAfter}.${formik.values.monthAfter}.${formik.values.yearAfter}`)
       dispatch(changeDateSelect({
         type: 'Указать даты',
         dateBefore: `20${formik.values.yearBefore}-${formik.values.monthBefore}-${formik.values.dayBefore}`,

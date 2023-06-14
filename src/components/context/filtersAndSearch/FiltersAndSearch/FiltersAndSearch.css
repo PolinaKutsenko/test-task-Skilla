@@ -1,75 +1,36 @@
 #filtersAndSearchContainer {
-    position: absolute;
-    width: 1440px;
-    height: 48px;
-    left: 0px;
-    top: 80px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+
+    padding-bottom: 21px;
 }
 
 #searchContainer {
-    position: absolute;
-    width: 482px;
-    height: 48px;
-    left: 0px;
-    top: 0px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
 }
 
-#searchContainer .filtersAndSearchText {
-    position: absolute;
-    width: 140px;
-    height: 20px;
-    left: 0px;
-    top: 14px; 
-}
-
-#searchContainer .filtersAndSearchText span {
-    position: absolute;
-    left: -4.5%;
-    right: 88.57%;
-    top: 10%;
-    bottom: 10%; 
-}
-
-#searchContainer .filtersAndSearchText span .searchButton {
+#searchContainer .searchButton {
     background: var(--call-page-background);
-}
-
-#searchContainer .filtersAndSearchText p {
-    position: absolute;
-    left: 20%;
-    right: 0%;
-    top: 0%;
-    bottom: 0%; 
 }
 
 #filtersContainer {
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 0px;
-    gap: 48px;
-    
-    position: absolute;
-    height: 21px;
-    right: 0px;
-    top: 13.5px;
-    
+    padding: 0px;   
 }
 
 #filtersFlexContainer {
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
-    align-items: flex-start;
     padding: 0px;
     gap: 32px;
-
-    width: 753px;
-    height: 21px;
-
-    flex: none;
-    order: 1;
-    flex-grow: 0;
 }
 
 #filtersClose {
@@ -80,9 +41,7 @@
     padding: 0px;
     gap: 5px;
     position: relative;
-    
-    height: 21px;
-        
+            
     flex: none;
     order: -1;
     flex-grow: 0;

@@ -55,23 +55,25 @@ const CallItem = ({ call }) => {
   });
 
   return (
-    <div className="callItem">
-      <div className="callItemBorder" />
-      <div className="callItemCheckbox"><CheckboxButton /></div>
-      <div className={callTypeClassNames}><CallTypeOutGoingIcon /></div>
-      <div className="callItemTime headerNameText">{date}</div>
-      <div className="personAvatar">
-        <img src={call.person_avatar} alt="avatar" />
+    <div className="callItemContainer">
+      <div className="callItem">
+        <div className="callItemBorder" />
+        <div className="callItemCheckbox"><CheckboxButton /></div>
+        <div className={callTypeClassNames}><CallTypeOutGoingIcon /></div>
+        <div className="callItemTime headerNameText">{date}</div>
+        <div className="personAvatar">
+          <img src={call.person_avatar} alt="avatar" />
+        </div>
+        {!!call.from_site && <div className="callItemWeb"><CallItemWebIcon /></div>}
+        <div className="callItemPhone"><CallItemPhoneIcon /></div>
+        <div className="telephoneNumber telephoneNumberText">
+          {telephoneNumber}
+        </div>
+        <div className="callItemSource callItemSourceText"><div>{call.source}</div></div>
+        {call.status === 'Дозвонился' && <div className="callItemRating">{rating}</div>}
+        <div className="callItemDuration headerNameText">{duration}</div>
+        {duration && <div className="callItemRecord"><RecordItem recordId={call.record} duration={duration} /></div>}
       </div>
-      {!!call.from_site && <div className="callItemWeb"><CallItemWebIcon /></div>}
-      <div className="callItemPhone"><CallItemPhoneIcon /></div>
-      <div className="telephoneNumber telephoneNumberText">
-        {telephoneNumber}
-      </div>
-      <div className="callItemSource callItemSourceText"><div>{call.source}</div></div>
-      {call.status === 'Дозвонился' && <div className="callItemRating">{rating}</div>}
-      <div className="callItemDuration headerNameText">{duration}</div>
-      {duration && <div className="callItemRecord"><RecordItem recordId={call.record} duration={duration} /></div>}
     </div>
   );
 };

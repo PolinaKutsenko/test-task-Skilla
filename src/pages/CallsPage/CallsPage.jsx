@@ -28,13 +28,11 @@ const CallsPage = () => {
   useEffect(() => {
     const authHeader = getAuthHeader();
     dispatch(actions.removeCalls());
-    console.log('00000')
     const route = `${routes.getListPath()}?${getSearchParamsForCalls(dateSelect, typesSelect)}`;
     dispatch(fetchCalls({ route, authHeader }));
   }, [typesSelect, dateSelect])
 
   useEffect(() => {
-    console.log('*********')
     const authHeader = getAuthHeader();
 
     calls.forEach((call) => {
@@ -48,8 +46,10 @@ const CallsPage = () => {
   return (
     <div id="callsPageContainer">
         <Sidebar />
-        <Header />
-        <Context />
+        <div className="headerAndContextContainer">
+          <Header />
+          <Context />
+        </div>        
     </div>
   );
 };

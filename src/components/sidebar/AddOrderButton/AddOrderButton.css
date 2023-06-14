@@ -1,9 +1,9 @@
 #addOrderButton {
-  position: absolute;
+  position: relative;
   width: 200px;
   height: 52px;
   left: 20px;
-  top: 664px;
+  top: 113px;
 
   border: none;
   padding: 0;
